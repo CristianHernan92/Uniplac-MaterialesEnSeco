@@ -221,7 +221,7 @@ namespace Pinturería.Forms
         private async void BtnRegistrarVenta_Click(object sender, EventArgs e)
         {
             string input = Microsoft.VisualBasic.Interaction.InputBox(
-                "Ingrese la cantidad de productos (sin contar cuánto de cada uno) que se vendieron en esta nueva venta",
+                "Ingrese la cantidad de productos (sin contar cuánto de cada uno) se vendieron en esta nueva venta",
                 "Cantidad de productos",
                 "1");
 

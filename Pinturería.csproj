@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Utils\logo\logo-pintech.jpeg" />
+    <None Remove="Utils\logo\logo-uniplac.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Utils\logo\logo-pintech.jpeg">
+    <Content Include="Utils\logo\logo-uniplac.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

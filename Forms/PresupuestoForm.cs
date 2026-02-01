@@ -312,13 +312,13 @@ namespace Pinturería.Forms
             seccion.PageSetup.BottomMargin = Unit.FromCentimeter(1.0);
 
             // ----------------------------------------------------------
-            // ENCABEZADO: LOGO (IZQ) + PINTECH / DIRECCIÓN (DER)
+            // ENCABEZADO: LOGO (IZQ) + UNIPLAC / DIRECCIÓN (DER)
             // ----------------------------------------------------------
             var tablaHeader = seccion.AddTable();
             tablaHeader.Borders.Width = 0;
 
             tablaHeader.AddColumn(Unit.FromCentimeter(5));   // Logo
-            tablaHeader.AddColumn(Unit.FromCentimeter(14.3));  // Pintech + dirección
+            tablaHeader.AddColumn(Unit.FromCentimeter(14.3));  // Uniplac + dirección
 
             var filaHeader = tablaHeader.AddRow();
             filaHeader.Cells[0].VerticalAlignment = VerticalAlignment.Top;
@@ -330,7 +330,7 @@ namespace Pinturería.Forms
             string rutaLogo = Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory,
                 @"Utils\logo",
-                "logo-pintech.jpeg"
+                "logo-uniplac.jpg"
             );
 
             if (File.Exists(rutaLogo))
@@ -340,17 +340,17 @@ namespace Pinturería.Forms
                 logo.Width = Unit.FromCentimeter(3.5);
             }
 
-            // --- PINTECH / DIRECCIÓN ---
-            var parPintech = filaHeader.Cells[1].AddParagraph(
-                "PINTECH\n" +
-                "AV 122 Y 44\n" +
-                "Lunes a Viernes : 08:30hs a 13:30/14:30 a 18:00hs\n" + 
-                "Sábados: 08:30 a 13:00hs"
+            // --- UNIPLAC / DIRECCIÓN ---
+            var parUniplac = filaHeader.Cells[1].AddParagraph(
+                "ENSENADA UNIPLAC SRL\n" +
+                "Direccion: ALBERDI 205 ENSENADA --- 1900\n" +
+                "Tel.: 2216441333\n" +
+                "CUIT: 30-71656796-2"
             );
 
-            parPintech.Format.Alignment = ParagraphAlignment.Right;
-            parPintech.Format.Font.Size = 10;
-            parPintech.Format.Font.Bold = true;
+            parUniplac.Format.Alignment = ParagraphAlignment.Right;
+            parUniplac.Format.Font.Size = 10;
+            parUniplac.Format.Font.Bold = true;
 
             // ---- FECHA ----
             var fechaPar = seccion.AddParagraph(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));

@@ -29,8 +29,8 @@
             menuStrip1 = new MenuStrip();
             productosMenuItem = new ToolStripMenuItem();
             ventasMenuItem = new ToolStripMenuItem();
-            presupuestoMenuItem = new ToolStripMenuItem();
             cierreCajaMenuItem = new ToolStripMenuItem();
+            presupuestoMenuItem = new ToolStripMenuItem();
             refrescarMenuItem = new ToolStripMenuItem();
             panelContenedor = new Panel();
             menuStrip1.SuspendLayout();
@@ -38,55 +38,55 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { productosMenuItem, ventasMenuItem ,cierreCajaMenuItem, presupuestoMenuItem, refrescarMenuItem });
+            menuStrip1.Font = new Font("Segoe UI", 10F);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { productosMenuItem, ventasMenuItem, cierreCajaMenuItem, presupuestoMenuItem, refrescarMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1284, 24);
+            menuStrip1.Size = new Size(1284, 27);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
-            menuStrip1.Font = new Font("Segoe UI", 10F);
             // 
             // productosMenuItem
             // 
             productosMenuItem.Name = "productosMenuItem";
-            productosMenuItem.Size = new Size(73, 20);
+            productosMenuItem.Size = new Size(83, 23);
             productosMenuItem.Text = "Productos";
             productosMenuItem.Click += ProductosMenuItem_Click;
             // 
             // ventasMenuItem
             // 
             ventasMenuItem.Name = "ventasMenuItem";
-            ventasMenuItem.Size = new Size(53, 20);
+            ventasMenuItem.Size = new Size(62, 23);
             ventasMenuItem.Text = "Ventas";
             ventasMenuItem.Click += VentasMenuItem_Click;
-            // 
-            // presupuestoMenuItem
-            // 
-            presupuestoMenuItem.Name = "presupuestoMenuItem";
-            presupuestoMenuItem.Size = new Size(90, 20);
-            presupuestoMenuItem.Text = "Presupuesto";
-            presupuestoMenuItem.Click += PresupuestoMenuItem_Click;
             // 
             // cierreCajaMenuItem
             // 
             cierreCajaMenuItem.Name = "cierreCajaMenuItem";
-            cierreCajaMenuItem.Size = new Size(90, 20);
+            cierreCajaMenuItem.Size = new Size(103, 23);
             cierreCajaMenuItem.Text = "Cierre de caja";
             cierreCajaMenuItem.Click += CierreCajaMenuItem_Click;
+            // 
+            // presupuestoMenuItem
+            // 
+            presupuestoMenuItem.Name = "presupuestoMenuItem";
+            presupuestoMenuItem.Size = new Size(97, 23);
+            presupuestoMenuItem.Text = "Presupuesto";
+            presupuestoMenuItem.Click += PresupuestoMenuItem_Click;
             // 
             // refrescarMenuItem
             // 
             refrescarMenuItem.Name = "refrescarMenuItem";
-            refrescarMenuItem.Size = new Size(67, 20);
+            refrescarMenuItem.Size = new Size(76, 23);
             refrescarMenuItem.Text = "Refrescar";
             refrescarMenuItem.Click += RefrescarMenuItem_Click;
             // 
             // panelContenedor
             // 
             panelContenedor.Dock = DockStyle.Fill;
-            panelContenedor.Location = new Point(0, 24);
+            panelContenedor.Location = new Point(0, 27);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1284, 537);
+            panelContenedor.Size = new Size(1284, 534);
             panelContenedor.TabIndex = 1;
             // 
             // MainForm
@@ -98,7 +98,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
-            Text = "Pinturería";
+            Text = "Sistema de gestión";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
