@@ -1,4 +1,4 @@
-﻿namespace Pinturería.Forms
+﻿namespace MaterialesEnSeco.Forms
 {
     partial class DataVentaEntryForm
     {

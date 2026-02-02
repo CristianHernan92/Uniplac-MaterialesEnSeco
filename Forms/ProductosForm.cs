@@ -1,11 +1,11 @@
-﻿using Pinturería.Data;
-using Pinturería.Models;
+﻿using MaterialesEnSeco.Data;
+using MaterialesEnSeco.Models;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
 
-namespace Pinturería.Forms
+namespace MaterialesEnSeco.Forms
 {
     public partial class ProductosForm : Form
     {

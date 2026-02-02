@@ -1,4 +1,4 @@
-﻿using Pinturería.Data;
+﻿using MaterialesEnSeco.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Pinturería.Forms
+namespace MaterialesEnSeco.Forms
 {
     public partial class DataVentaEntryForm : Form
     {

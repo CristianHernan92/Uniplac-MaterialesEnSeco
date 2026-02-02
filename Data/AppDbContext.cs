@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Pinturería.Models;
+using MaterialesEnSeco.Models;
 using System;
 using System.Configuration;
 
-namespace Pinturería.Data
+namespace MaterialesEnSeco.Data
 {
     internal class AppDbContext : DbContext
     {
@@ -19,7 +19,7 @@ namespace Pinturería.Data
             if (!optionsBuilder.IsConfigured)
             {
                 var connStr = ConfigurationManager
-                    .ConnectionStrings["PintureriaDB"]
+                    .ConnectionStrings["UniplacDB"]
                     .ConnectionString;
 
                 optionsBuilder.UseMySql(

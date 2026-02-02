@@ -1,7 +1,7 @@
-using Pinturería.Forms;
+using MaterialesEnSeco.Forms;
 using System.Windows.Forms;
 
-namespace Pinturería
+namespace MaterialesEnSeco
 {
     public partial class MainForm : Form
     {

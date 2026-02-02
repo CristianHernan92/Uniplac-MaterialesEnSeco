@@ -1,4 +1,4 @@
-﻿namespace Pinturería
+﻿namespace MaterialesEnSeco
 {
     partial class MainForm
     {

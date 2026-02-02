@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pinturería.Models
+namespace MaterialesEnSeco.Models
 {
     internal class FormaPago
     {

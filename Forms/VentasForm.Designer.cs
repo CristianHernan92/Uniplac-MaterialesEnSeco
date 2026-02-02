@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Pinturería.Forms
+namespace MaterialesEnSeco.Forms
 {
     partial class VentasForm
     {

@@ -1,9 +1,9 @@
-﻿using Pinturería.Data;
-using Pinturería.Models;
+﻿using MaterialesEnSeco.Data;
+using MaterialesEnSeco.Models;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
 
-namespace Pinturería.Forms
+namespace MaterialesEnSeco.Forms
 {
     public partial class CierreCajaForm : Form
     {

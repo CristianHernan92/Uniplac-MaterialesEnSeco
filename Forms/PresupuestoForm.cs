@@ -1,11 +1,11 @@
 ﻿using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
-using Pinturería.Data;
-using Pinturería.Models;
+using MaterialesEnSeco.Data;
+using MaterialesEnSeco.Models;
 using System.Windows.Forms;
 
-namespace Pinturería.Forms
+namespace MaterialesEnSeco.Forms
 {
     public partial class PresupuestoForm : Form
     {
