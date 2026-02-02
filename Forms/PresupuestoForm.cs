@@ -255,21 +255,6 @@ namespace MaterialesEnSeco.Forms
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    string destinatarioIngresado = Microsoft.VisualBasic.Interaction.InputBox(
-                        "Ingrese el nombre del destinatario:",
-                        "Señor/es",
-                        ""
-                        );
-                    while (destinatarioIngresado.Trim() == "")
-                    {
-                        MessageBox.Show("Debe ingresar un destinatario.");
-                        destinatarioIngresado = Microsoft.VisualBasic.Interaction.InputBox(
-                        "Ingrese el nombre del destinatario:",
-                        "Señor/es",
-                        ""
-                        );
-                    }
-
                     // Llamamos a GenerarPDF_MigraDoc
                     GenerarPDF_MigraDoc(
                         sfd.FileName,
@@ -279,7 +264,7 @@ namespace MaterialesEnSeco.Forms
                         totalConEfectivo,      
                         esDescuento,
                         porc,                          
-                        destinatarioIngresado
+                        ""
                     );
 
                     MessageBox.Show("Presupuesto exportado correctamente.",
@@ -360,18 +345,6 @@ namespace MaterialesEnSeco.Forms
             fechaPar.Format.SpaceBefore = Unit.FromCentimeter(1);
 
             // ----------------------------------------------------------
-            // SEÑOR/ES + DESTINATARIO
-            // ----------------------------------------------------------
-
-            var senores = seccion.AddParagraph("Señor/es:");
-            senores.Format.Font.Size = 12;
-            senores.Format.Font.Bold = true;
-
-            var destinatarioPar = seccion.AddParagraph(destinatario);
-            destinatarioPar.Format.Font.Size = 12;
-            destinatarioPar.Format.SpaceAfter = Unit.FromCentimeter(0.5);
-
-            // ----------------------------------------------------------
             // TÍTULO PRINCIPAL
             // ----------------------------------------------------------
 
@@ -382,12 +355,82 @@ namespace MaterialesEnSeco.Forms
             tituloPar.Format.SpaceAfter = Unit.FromCentimeter(0.8);
 
             // ----------------------------------------------------------
+            // DATOS DEL CLIENTE
+            // ----------------------------------------------------------
+
+            int guionesLargos = 67; // ajustá este número si querés más o menos largo
+
+            // ----------------------------------------------------------
+            // CLIENTE
+            // ----------------------------------------------------------
+            var cliente = seccion.AddParagraph();
+            cliente.Format.Font.Size = 11;
+            cliente.Format.SpaceAfter = Unit.FromCentimeter(0.55);
+            cliente.AddText("Cliente: " + new string('_', guionesLargos));
+
+            // ----------------------------------------------------------
+            // DOMICILIO
+            // ----------------------------------------------------------
+            var domicilio = seccion.AddParagraph();
+            domicilio.Format.Font.Size = 11;
+            domicilio.Format.SpaceAfter = Unit.FromCentimeter(0.55);
+            domicilio.AddText("Domicilio: " + new string('_', guionesLargos));
+
+            // ----------------------------------------------------------
+            // LOCALIDAD
+            // ----------------------------------------------------------
+            var localidad = seccion.AddParagraph();
+            localidad.Format.Font.Size = 11;
+            localidad.Format.SpaceAfter = Unit.FromCentimeter(0.55);
+            localidad.AddText("Localidad: " + new string('_', guionesLargos));
+
+            // ----------------------------------------------------------
+            // CÓDIGO POSTAL
+            // ----------------------------------------------------------
+            var codigopostal = seccion.AddParagraph();
+            codigopostal.Format.Font.Size = 11;
+            codigopostal.Format.SpaceAfter = Unit.FromCentimeter(0.55);
+            codigopostal.AddText("Código Postal: " + new string('_', guionesLargos));
+
+            // ----------------------------------------------------------
+            // TELÉFONO
+            // ----------------------------------------------------------
+            var telefono = seccion.AddParagraph();
+            telefono.Format.Font.Size = 11;
+            telefono.Format.SpaceAfter = Unit.FromCentimeter(1.35);
+            telefono.AddText("Teléfono: " + new string('_', guionesLargos));
+
+            // ----------------------------------------------------------
+            // CONDICIONES
+            // ----------------------------------------------------------
+            var condiciones = seccion.AddParagraph();
+            condiciones.Format.Font.Size = 11;
+            condiciones.Format.SpaceAfter = Unit.FromCentimeter(0.55);
+            condiciones.AddText("Condiciones: " + new string('_', guionesLargos));
+
+            // ----------------------------------------------------------
+            // VENDEDOR
+            // ----------------------------------------------------------
+            var vendedor = seccion.AddParagraph();
+            vendedor.Format.Font.Size = 11;
+            vendedor.Format.SpaceAfter = Unit.FromCentimeter(0.55);
+            vendedor.AddText("Vendedor: " + new string('_', guionesLargos));
+
+            // ----------------------------------------------------------
+            // CONDICIÓN IVA
+            // ----------------------------------------------------------
+            var condicioniva = seccion.AddParagraph();
+            condicioniva.Format.Font.Size = 11;
+            condicioniva.Format.SpaceAfter = Unit.FromCentimeter(1.35);
+            condicioniva.AddText("Condición IVA: " + new string('_', guionesLargos));
+
+            // ----------------------------------------------------------
             // TABLA DE PRODUCTOS
             // ----------------------------------------------------------
 
             var table = seccion.AddTable();
             table.Borders.Width = 0.5;
-            table.Format.Font.Size = 12;
+            table.Format.Font.Size = 11;
 
             table.AddColumn(Unit.FromCentimeter(2));
             table.AddColumn(Unit.FromCentimeter(10));
@@ -410,15 +453,14 @@ namespace MaterialesEnSeco.Forms
                 row.Cells[3].AddParagraph((l.Precio * l.Cantidad).ToString("N2"));
             }
 
-            seccion.AddParagraph("").Format.SpaceAfter = Unit.FromCentimeter(0.3);
+            seccion.AddParagraph("").Format.SpaceAfter = Unit.FromCentimeter(1);
 
             // ----------------------------------------------------------
             // TOTALES
             // ----------------------------------------------------------
 
             var totalEfec = seccion.AddParagraph($"Total con tarjeta de crédito $: {totalTarjeta:N2}");
-            totalEfec.Format.Font.Size = 12;
-            totalEfec.Format.Font.Bold = true;
+            totalEfec.Format.Font.Size = 11;
             totalEfec.Format.Alignment = ParagraphAlignment.Right;
             totalEfec.Format.SpaceAfter = Unit.FromCentimeter(0.2);
 
@@ -427,30 +469,9 @@ namespace MaterialesEnSeco.Forms
             var totalTar = seccion.AddParagraph(
                 $"Total en efectivo ({signo}{porcEfectivo}%) $: {totalEfectivo:N2}"
             );
-            totalTar.Format.Font.Size = 12;
-            totalTar.Format.Font.Bold = true;
+            totalTar.Format.Font.Size = 11;
             totalTar.Format.Alignment = ParagraphAlignment.Right;
             totalTar.Format.SpaceAfter = Unit.FromCentimeter(1.0);
-
-            // ----------------------------------------------------------
-            // CONDICIONES
-            // ----------------------------------------------------------
-
-            var condiciones_primero = seccion.AddParagraph(
-                "Importes al día de la fecha. Cualquier variación impositiva afectará la liquidación final"
-            );
-            condiciones_primero.Format.Font.Size = 12;
-            condiciones_primero.Format.Font.Italic = true;
-            condiciones_primero.Format.SpaceAfter = Unit.FromCentimeter(0.25);
-
-            var condiciones_segundo = seccion.AddParagraph(
-                "PLAZO Y LUGAR DE ENTREGA:\n" +
-                "CONDICIONES DE PAGO:\n" +
-                "VIGENCIA DEL PRESUPUESTO:"
-            );
-            condiciones_segundo.Format.Font.Size = 12;
-            condiciones_segundo.Format.Font.Bold = true;
-            condiciones_segundo.Format.SpaceAfter = Unit.FromCentimeter(1.0);
 
             // ----------------------------------------------------------
             // ESPACIO ANTES DEL PIE (para empujarlo hacia abajo)
